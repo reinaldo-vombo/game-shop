@@ -8,7 +8,7 @@ const Products = ({ products }) => {
         <h2>Best Selling products</h2>
         <p>Speakers of many variations</p>
       </div>
-      <div className='products-container'>
+      <div className='grid grid-cols-3'>
         {products?.map((product, index) => (
           <Product
             key={product._id}
