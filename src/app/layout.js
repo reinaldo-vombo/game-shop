@@ -4,6 +4,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Inter } from 'next/font/google';
 import { StateContext } from './context/StateContext';
+import { Navbar } from '@/components';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,7 +18,10 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body className={inter.className}>
         <StateContext>
-          <main>{children}</main>
+          <main>
+            <Navbar />
+            {children}
+          </main>
         </StateContext>
       </body>
     </html>
