@@ -10,6 +10,7 @@ import { Product, ProductDetais } from '../../../components';
 import { useStateContext } from '../../context/StateContext';
 import Image from 'next/image';
 import Button from '@/components/Button';
+import QuantityButton from '@/components/QuantityButton';
 
 const Page = async ({ params: { slug } }) => {
   const query = `*[_type == "product" && slug.current == '${slug}'][0]`;
@@ -17,13 +18,6 @@ const Page = async ({ params: { slug } }) => {
 
   const product = await client.fetch(query);
   const { name, details, price, bgImage } = product;
-  // const [index, setIndex] = useState(0);
-  // const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
-  // const [data, setData] = useState([]);
-
-  // useEffect(() => {
-  //   setData(product);
-  // }, []);
 
   const handleBuyNow = () => {
     onAdd(product, qty);
@@ -33,18 +27,19 @@ const Page = async ({ params: { slug } }) => {
 
   return (
     <div
-      className='hero h-[35rem]'
+      className='hero bg-base-200 h-[35rem]'
       style={{
         backgroundImage: `url(${urlFor(bgImage)})`,
       }}
     >
       <div className='hero-overlay bg-opacity-60'></div>
-      <div className='z-0 flex items-center max-w-[80rem] gap-1 p-1 text-center text-neutral-content'>
-        <div className='max-w-md'>
-          <h1 className='mb-5 text-5xl font-bold'>{name}</h1>
+      <div className='h-full w-full flex items-center'>
+        <div className='max-w-md ml-5'>
+          <h1 className='mb-5 text-gray-400 text-5xl font-bold'>{name}</h1>
+          <p>{details}</p>
           <span>{price}(kz)</span>
           <p className='mb-5'>{details}</p>
-
+          <QuantityButton />
           <Button />
         </div>
       </div>

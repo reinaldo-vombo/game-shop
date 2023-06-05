@@ -3,6 +3,7 @@
 import { useStateContext } from '@/app/context/StateContext';
 import React from 'react';
 import { Cart } from '../components';
+import Link from 'next/link';
 
 const Navbar = () => {
   const { showCart, setShowCart, totalQuantities, toggleTheme } =
@@ -11,9 +12,9 @@ const Navbar = () => {
   return (
     <div className='navbar bg-base-100'>
       <div className='flex-1'>
-        <a href='/' className='btn btn-ghost normal-case text-xl'>
+        <Link href='/' className='btn btn-ghost normal-case text-xl'>
           daisyUI
-        </a>
+        </Link>
       </div>
       <div className='flex-none'>
         <div className='form-control'>

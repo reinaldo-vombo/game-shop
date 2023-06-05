@@ -9,7 +9,6 @@ const Hero = async () => {
   const bannerData = await client.fetch(bannerQuery);
   return (
     <>
-      <Navbar />
       <div className='flex flex-col items-center justify-cente'>
         <HeroBanner bannerData={bannerData} />
         <Products products={products} />
